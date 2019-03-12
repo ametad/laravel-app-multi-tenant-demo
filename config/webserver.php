@@ -105,12 +105,12 @@ return [
         /**
          * Whether the integration with nginx is currently active.
          */
-        'enabled' => false,
+        'enabled' => true,
 
         /**
          * The php sock to be used.
          */
-        'php-sock' => 'unix:/var/run/php/php7.1-fpm.sock',
+        'php-sock' => 'unix:/var/run/php/php7.2-fpm.sock',
 
         /**
          * Define the ports of your nginx service.
@@ -164,20 +164,20 @@ return [
                 /**
                  * Action that asserts nginx is installed.
                  */
-                'exists' => '/etc/init.d/nginx',
+                'exists' => 'sudo /etc/init.d/nginx',
                 /**
                  * Action to run to test the nginx configuration.
                  *
                  * @info set to a boolean to force the response of the test command.
                  *  true succeeds, false fails
                  */
-                'test-config' => '/etc/init.d/nginx configtest',
+                'test-config' => 'sudo /etc/init.d/nginx configtest',
                 /**
                  * Action to run to reload the nginx service.
                  *
                  * @info set to null to disable reloading.
                  */
-                'reload' => '/etc/init.d/nginx reload'
+                'reload' => 'sudo /etc/init.d/nginx reload'
             ]
         ]
     ]
