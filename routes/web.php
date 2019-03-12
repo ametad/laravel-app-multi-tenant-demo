@@ -11,10 +11,25 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+/**
+ * Admin pages
+ *
+ * Must be defined first.
+ */
+Route::domain('homestead.test')->group(function () {
+
+    Route::get('/', function () {
+        return 'Admin page...';
+    })->name('admin-landing');
+
 });
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+/**
+ * Landing pages are defined here.
+ *
+ * If the tenant website is not found, the landing pages are shown.
+ */
+Route::get('/', function () {
+    return 'Landing page...';
+})->name('landing');
